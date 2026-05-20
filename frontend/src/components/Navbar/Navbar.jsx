@@ -1,9 +1,5 @@
 function Navbar() {
-  return (
-    <>
-      Navbar - Coming Soon
-    </>
-  )
+  return <>Navbar - Coming Soon</>;
 }
 
-export default Navbar
+export default Navbar;

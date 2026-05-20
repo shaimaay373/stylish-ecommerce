@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.jsx";
-// import { ProtectedRoute, AdminRoute } from "./routes/ProtectedRoute.jsx";
+import { ProtectedRoute, AdminRoute } from "./routes/ProtectedRoute.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.jsx";
