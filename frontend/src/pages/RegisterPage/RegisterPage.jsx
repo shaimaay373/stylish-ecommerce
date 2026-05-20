@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import api from "../api/axios";
-import { useAuth } from "../context/AuthContext";
-import ErrorMessage from "../components/ErrorMessage";
+import api from "../../api/axios";
+import { useAuth } from "../../context/AuthContext";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import toast from "react-hot-toast";
 
 export default function RegisterPage() {

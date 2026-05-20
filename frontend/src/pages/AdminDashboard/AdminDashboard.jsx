@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import api from "../../api/axios";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import ErrorMessage from "../../components/ErrorMessage";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import toast from "react-hot-toast";
 const STATUS_OPTIONS = [
   "pending",
