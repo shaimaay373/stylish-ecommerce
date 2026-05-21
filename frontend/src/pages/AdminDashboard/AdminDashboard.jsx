@@ -160,17 +160,43 @@ const AdminDashboard = () => {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Delete this product?")) return;
-    setDeletingId(id);
-    try {
-      await api.delete(`/products/${id}`);
-      setProducts((p) => p.filter((x) => x._id !== id));
-      toast.success("Product deleted");
-    } catch {
-      toast.error("Failed to delete product");
-    } finally {
-      setDeletingId(null);
-    }
+    toast((t) => (
+      <div className="flex flex-col gap-3">
+        <p>Are you sure you want to delete this product?</p>
+
+        <div className="flex gap-2 justify-end">
+          <button
+            onClick={() => toast.dismiss(t.id)}
+            className="px-3 py-1 rounded-lg bg-gray-200 text-gold"
+          >
+            Cancel
+          </button>
+ 
+          <button
+            onClick={async () => {
+              toast.dismiss(t.id);
+
+              setDeletingId(id);
+
+              try {
+                await api.delete(`/products/${id}`);
+
+                setProducts((p) => p.filter((x) => x._id !== id));
+
+                toast.success("Product deleted");
+              } catch {
+                toast.error("Failed to delete product");
+              } finally {
+                setDeletingId(null);
+              }
+            }}
+            className="px-3 py-1 rounded-lg bg-red-500 text-white"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    ));
   };
 
   const handleUpdateStatus = async (orderId, status) => {
@@ -609,7 +635,7 @@ const AdminDashboard = () => {
                   }
                   placeholder="Product description..."
                   rows={3}
-                  className="input-field resize-none"
+                  className="input-field resize-none rounded-lg"
                 />
               </div>
 
@@ -634,14 +660,14 @@ const AdminDashboard = () => {
                 <button
                   type="button"
                   onClick={() => setShowProductModal(false)}
-                  className="btn-outline flex-1 text-sm uppercase tracking-wider"
+                  className="btn-outline flex-1 text-sm uppercase tracking-wider rounded-lg"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={saving}
-                  className="btn-primary flex-1 text-sm uppercase tracking-wider flex items-center justify-center gap-2"
+                  className="btn-primary flex-1 text-sm uppercase tracking-wider flex items-center justify-center gap-2 rounded-lg"
                 >
                   {saving ? (
                     <>

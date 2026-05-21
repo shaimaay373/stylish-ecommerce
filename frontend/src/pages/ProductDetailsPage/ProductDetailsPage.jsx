@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import api from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
-//import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner.jsx";
 import toast from "react-hot-toast";
 
