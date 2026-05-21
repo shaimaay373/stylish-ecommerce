@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import api from "../../api/axios";
-import ProductCard from "../../components/ProductCard";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import ProductCard from "../../components/ProductCard/ProductCard.jsx";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner.jsx";
 
 const CATEGORIES = ["All", "men", "women", "kids", "accessories"];
 const SORTS = [

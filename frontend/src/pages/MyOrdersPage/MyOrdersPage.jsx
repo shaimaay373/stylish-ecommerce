@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import api from "../api/axios";
-import LoadingSpinner from "../components/LoadingSpinner";
+import api from "../../api/axios";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner.jsx";
 
 const STATUS_COLORS = {
   pending: "bg-yellow-50 text-yellow-700 border border-yellow-200",

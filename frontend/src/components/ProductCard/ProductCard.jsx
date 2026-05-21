@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-//import { useCart } from "../context/CartContext";
+import { useCart } from "../../context/CartContext";
 import { useState } from "react";
 
 export default function ProductCard({ product }) {

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import api from "../api/axios";
-import LoadingSpinner from "../components/LoadingSpinner";
-import ErrorMessage from "../components/ErrorMessage";
+import { useCart } from "../../context/CartContext";
+import api from "../../api/axios";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner.jsx";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.jsx";
 import toast from "react-hot-toast";
 
 export default function CartPage() {
