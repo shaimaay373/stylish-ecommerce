@@ -7,7 +7,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.jsx";
 import toast from "react-hot-toast";
 
 export default function CartPage() {
-  const { cart, loading, removeItem, updateQuantity, clearCart, itemCount } =
+  const { cart, loading, removeItem, updateQuantity, fetchCart, itemCount } =
     useCart();
   const navigate = useNavigate();
 
@@ -63,7 +63,7 @@ export default function CartPage() {
         shippingAddress: shipping,
       });
 
-      await clearCart();
+      await fetchCart();
 
       toast.success("Order placed successfully!");
 
