@@ -69,7 +69,7 @@ const AdminDashboard = () => {
     setLoading(true);
     try {
       const { data } = await api.get("/orders");
-      setOrders(Array.isArray(data) ? data : data.orders || []);
+      setOrders(Array.isArray(data) ? data : data.data || []);
     } catch {
       toast.error("Failed to load orders");
     } finally {
@@ -171,7 +171,7 @@ const AdminDashboard = () => {
           >
             Cancel
           </button>
- 
+
           <button
             onClick={async () => {
               toast.dismiss(t.id);
@@ -231,7 +231,7 @@ const AdminDashboard = () => {
               <button
                 key={t.id}
                 onClick={() => setTab(t.id)}
-                className={`px-6 py-3 text-sm uppercase tracking-widest font-body transition-all ${tab === t.id ? "bg-gold text-navy" : "text-white/60 hover:text-white"}`}
+                className={`px-6 py-3 text-sm uppercase tracking-widest rounded-lg font-body transition-all ${tab === t.id ? "bg-gold text-navy" : "text-white/60 hover:text-white"} `}
               >
                 {t.label}
               </button>
@@ -250,7 +250,7 @@ const AdminDashboard = () => {
               </h2>
               <button
                 onClick={openCreate}
-                className="btn-primary flex items-center gap-2 text-sm uppercase tracking-widest"
+                className="btn-primary flex items-center gap-2 text-sm uppercase tracking-widest rounded-lg"
               >
                 <svg
                   className="w-4 h-4"
@@ -303,7 +303,7 @@ const AdminDashboard = () => {
                               <img
                                 src={image}
                                 alt={product.name}
-                                className="w-12 h-14 object-cover bg-gray-100 flex-shrink-0"
+                                className="w-12 h-14 object-cover bg-gray-100 flex-shrink-0 rounded-sm"
                                 onError={(e) => {
                                   e.target.src =
                                     "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=80&q=60";
@@ -315,7 +315,7 @@ const AdminDashboard = () => {
                             </div>
                           </td>
                           <td className="px-4 py-4">
-                            <span className="badge bg-navy/10 text-navy text-[10px] capitalize">
+                            <span className="badge bg-navy/10 text-navy text-[10px] capitalize rounded-md">
                               {product.category || "—"}
                             </span>
                           </td>
@@ -352,7 +352,7 @@ const AdminDashboard = () => {
                               <button
                                 onClick={() => handleDelete(product._id)}
                                 disabled={deletingId === product._id}
-                                className="text-gray-300 hover:text-red-400 transition-colors p-1.5 hover:bg-red-50"
+                                className="text-navy hover:text-red-400 transition-colors p-1.5 hover:bg-red-50"
                               >
                                 {deletingId === product._id ? (
                                   <span className="h-4 w-4 border-2 border-red-200 border-t-red-400 rounded-full animate-spin block" />
@@ -445,7 +445,10 @@ const AdminDashboard = () => {
                         <span className="text-gold font-semibold font-body">
                           $
                           {Number(
-                            order.totalAmount || order.total || 0,
+                            order.totalPrice ||
+                              order.totalAmount ||
+                              order.total ||
+                              0,
                           ).toFixed(2)}
                         </span>
                         <select
