@@ -11,7 +11,6 @@ export const ProtectedRoute = ({ children }) => {
 
 export const AdminRoute = ({ children }) => {
   const { isAuthenticated, user } = useAuth();
-  console.log(user);
   const location = useLocation();
   if (!isAuthenticated)
     return <Navigate to="/login" state={{ from: location }} replace />;
